@@ -13,11 +13,11 @@ var DistrictsRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     DistrictsRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/districts', DistrictController_1.default.index);
-        this.routes.get('/districts/:name', celebrate_1.celebrate({ params: validations.paramName }), DistrictController_1.default.show);
-        this.routes.post('/districts', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.district }), DistrictController_1.default.store);
-        this.routes.put('/districts/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.district, params: validations.paramId }), DistrictController_1.default.update);
-        this.routes.delete('/districts/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), DistrictController_1.default.delete);
+        this.routes.get('/mcdonuts/districts', DistrictController_1.default.index);
+        this.routes.get('/mcdonuts/districts/:name', celebrate_1.celebrate({ params: validations.paramName }), DistrictController_1.default.show);
+        this.routes.post('/mcdonuts/districts', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.district }), DistrictController_1.default.store);
+        this.routes.put('/mcdonuts/districts/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.district, params: validations.paramId }), DistrictController_1.default.update);
+        this.routes.delete('/mcdonuts/districts/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), DistrictController_1.default.delete);
     };
     return DistrictsRoutes;
 }());

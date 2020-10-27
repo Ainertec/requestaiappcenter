@@ -12,13 +12,13 @@ var OrdersRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     OrdersRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/orders', Authorization_1.default, OrderController_1.default.index);
-        this.routes.get('/orders/user', OrderController_1.default.showByUser);
-        this.routes.get('/orders/deliveryman/:deliveryman', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramDeliveryman }), OrderController_1.default.showByDeliveryman);
-        this.routes.get('/orders/:identification', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramIdentification }), OrderController_1.default.show);
-        this.routes.post('/orders', celebrate_1.celebrate({ body: validations.order }), OrderController_1.default.store);
-        this.routes.put('/orders/:id', Authorization_1.default, celebrate_1.celebrate({ body: validations.orderUpdate }), OrderController_1.default.update);
-        this.routes.delete('/orders/:id', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), OrderController_1.default.delete);
+        this.routes.get('/mcdonuts/orders', Authorization_1.default, OrderController_1.default.index);
+        this.routes.get('/mcdonuts/orders/user', OrderController_1.default.showByUser);
+        this.routes.get('/mcdonuts/orders/deliveryman/:deliveryman', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramDeliveryman }), OrderController_1.default.showByDeliveryman);
+        this.routes.get('/mcdonuts/orders/:identification', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramIdentification }), OrderController_1.default.show);
+        this.routes.post('/mcdonuts/orders', celebrate_1.celebrate({ body: validations.order }), OrderController_1.default.store);
+        this.routes.put('/mcdonuts/orders/:id', Authorization_1.default, celebrate_1.celebrate({ body: validations.orderUpdate }), OrderController_1.default.update);
+        this.routes.delete('/mcdonuts/orders/:id', Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), OrderController_1.default.delete);
     };
     return OrdersRoutes;
 }());

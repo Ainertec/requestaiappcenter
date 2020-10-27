@@ -69,5 +69,5 @@ reportRoutes.getRoutes(reportSchema_1.default);
 var printersRoutes = new Printers_routes_1.PrintersRoutes(routes);
 printersRoutes.getRoutes({ printer: printerSchema_1.default });
 // serial
-routes.get('/serial_false', celebrate_1.celebrate({ query: serialSchema_1.default }), SerialController_1.default.exit);
+routes.get('/mcdonuts/serial_false', celebrate_1.celebrate({ query: serialSchema_1.default }), SerialController_1.default.exit);
 exports.default = routes;

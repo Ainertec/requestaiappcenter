@@ -11,15 +11,15 @@ var DeliverymansRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     DeliverymansRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/deliverymans', DeliverymanController_1.default.index);
-        this.routes.get('/deliverymans/hasDelivery', DeliverymanController_1.default.showByDelivery);
-        this.routes.get('/deliverymans/availables', DeliverymanController_1.default.show);
-        this.routes.get('/deliverymans/working_days', DeliverymanController_1.default.showByWorking);
-        this.routes.get('/deliverymans/:name', DeliverymanController_1.default.showByName);
-        this.routes.post('/deliverymans', celebrate_1.celebrate({ body: validations.deliveryman }), DeliverymanController_1.default.store);
-        this.routes.put('/deliverymans/:id', celebrate_1.celebrate({ body: validations.deliveryman, params: validations.paramId }), DeliverymanController_1.default.update);
-        this.routes.put('/deliverymans', DeliverymanController_1.default.reset);
-        this.routes.delete('/deliverymans/:id', celebrate_1.celebrate({ params: validations.paramId }), DeliverymanController_1.default.delete);
+        this.routes.get('/mcdonuts/deliverymans', DeliverymanController_1.default.index);
+        this.routes.get('/mcdonuts/deliverymans/hasDelivery', DeliverymanController_1.default.showByDelivery);
+        this.routes.get('/mcdonuts/deliverymans/availables', DeliverymanController_1.default.show);
+        this.routes.get('/mcdonuts/deliverymans/working_days', DeliverymanController_1.default.showByWorking);
+        this.routes.get('/mcdonuts/deliverymans/:name', DeliverymanController_1.default.showByName);
+        this.routes.post('/mcdonuts/deliverymans', celebrate_1.celebrate({ body: validations.deliveryman }), DeliverymanController_1.default.store);
+        this.routes.put('/mcdonuts/deliverymans/:id', celebrate_1.celebrate({ body: validations.deliveryman, params: validations.paramId }), DeliverymanController_1.default.update);
+        this.routes.put('/mcdonuts/deliverymans', DeliverymanController_1.default.reset);
+        this.routes.delete('/mcdonuts/deliverymans/:id', celebrate_1.celebrate({ params: validations.paramId }), DeliverymanController_1.default.delete);
     };
     return DeliverymansRoutes;
 }());

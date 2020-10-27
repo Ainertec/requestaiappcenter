@@ -7,7 +7,7 @@ var SessionRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     SessionRoutes.prototype.getRoutes = function () {
-        this.routes.post('/sessions', function (request, response) {
+        this.routes.post('/mcdonuts/sessions', function (request, response) {
             return Session_1.sessionController.store(request, response);
         });
     };

@@ -11,11 +11,11 @@ var IngredientsRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     IngredientsRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/ingredients', IngredientController_1.default.index);
-        this.routes.get('/ingredients/:name', celebrate_1.celebrate({ params: validations.paramName }), IngredientController_1.default.show);
-        this.routes.post('/ingredients', celebrate_1.celebrate({ body: validations.ingredient }), IngredientController_1.default.store);
-        this.routes.put('/ingredients/:id', celebrate_1.celebrate({ body: validations.ingredient, params: validations.paramId }), IngredientController_1.default.update);
-        this.routes.delete('/ingredients/:id', celebrate_1.celebrate({ params: validations.paramId }), IngredientController_1.default.delete);
+        this.routes.get('/mcdonuts/ingredients', IngredientController_1.default.index);
+        this.routes.get('/mcdonuts/ingredients/:name', celebrate_1.celebrate({ params: validations.paramName }), IngredientController_1.default.show);
+        this.routes.post('/mcdonuts/ingredients', celebrate_1.celebrate({ body: validations.ingredient }), IngredientController_1.default.store);
+        this.routes.put('/mcdonuts/ingredients/:id', celebrate_1.celebrate({ body: validations.ingredient, params: validations.paramId }), IngredientController_1.default.update);
+        this.routes.delete('/mcdonuts/ingredients/:id', celebrate_1.celebrate({ params: validations.paramId }), IngredientController_1.default.delete);
     };
     return IngredientsRoutes;
 }());

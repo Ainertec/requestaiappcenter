@@ -13,11 +13,11 @@ var ProductRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     ProductRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/products', ProductController_1.default.index);
-        this.routes.get('/products/:name', celebrate_1.celebrate({ params: validations.paramName }), ProductController_1.default.show);
-        this.routes.post('/products', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.product }), ProductController_1.default.store);
-        this.routes.put('/products/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.product, params: validations.paramId }), ProductController_1.default.update);
-        this.routes.delete('/products/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), ProductController_1.default.delete);
+        this.routes.get('/mcdonuts/products', ProductController_1.default.index);
+        this.routes.get('/mcdonuts/products/:name', celebrate_1.celebrate({ params: validations.paramName }), ProductController_1.default.show);
+        this.routes.post('/mcdonuts/products', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.product }), ProductController_1.default.store);
+        this.routes.put('/mcdonuts/products/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ body: validations.product, params: validations.paramId }), ProductController_1.default.update);
+        this.routes.delete('/mcdonuts/products/:id', Authentication_1.default, Authorization_1.default, celebrate_1.celebrate({ params: validations.paramId }), ProductController_1.default.delete);
     };
     return ProductRoutes;
 }());

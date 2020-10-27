@@ -7,10 +7,10 @@ var ForgotPasswordRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     ForgotPasswordRoutes.prototype.getRoutes = function () {
-        this.routes.get('/forgot/:username', function (request, response) {
+        this.routes.get('/mcdonuts/forgot/:username', function (request, response) {
             return ForgotPassword_1.forgotPasswordController.show(request, response);
         });
-        this.routes.post('/forgot', function (request, response) {
+        this.routes.post('/mcdonuts/forgot', function (request, response) {
             return ForgotPassword_1.forgotPasswordController.store(request, response);
         });
     };
