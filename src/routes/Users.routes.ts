@@ -7,30 +7,30 @@ import Authentication from '../middlewares/Authentication';
 import Authorization from '../middlewares/Authorization';
 
 export class UserRoutes {
-  constructor(private routes: Router) {}
+  constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsClient) {
     this.routes.get(
-      '/users',
+      '/mcdonuts/users',
       Authentication,
       Authorization,
       ClientController.index,
     );
     this.routes.get(
-      '/users/:name',
+      '/mcdonuts/users/:name',
       Authentication,
       Authorization,
       celebrate({ params: validations.paramName }),
       ClientController.show,
     );
     this.routes.post(
-      '/users',
+      '/mcdonuts/users',
       UserAuth,
       celebrate({ body: validations.client }),
       ClientController.store,
     );
     this.routes.put(
-      '/users/:id',
+      '/mcdonuts/users/:id',
       Authentication,
       celebrate({
         body: validations.clientUpdate,
@@ -39,7 +39,7 @@ export class UserRoutes {
       ClientController.update,
     );
     this.routes.delete(
-      '/users/:id',
+      '/mcdonuts/users/:id',
       Authentication,
       Authorization,
       celebrate({ params: validations.paramId }),

@@ -9,28 +9,28 @@ export class ProductRoutes {
   constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsProduct) {
-    this.routes.get('/products', ProductController.index);
+    this.routes.get('/mcdonuts/products', ProductController.index);
     this.routes.get(
-      '/products/:name',
+      '/mcdonuts/products/:name',
       celebrate({ params: validations.paramName }),
       ProductController.show,
     );
     this.routes.post(
-      '/products',
+      '/mcdonuts/products',
       Authentication,
       Authorization,
       celebrate({ body: validations.product }),
       ProductController.store,
     );
     this.routes.put(
-      '/products/:id',
+      '/mcdonuts/products/:id',
       Authentication,
       Authorization,
       celebrate({ body: validations.product, params: validations.paramId }),
       ProductController.update,
     );
     this.routes.delete(
-      '/products/:id',
+      '/mcdonuts/products/:id',
       Authentication,
       Authorization,
       celebrate({ params: validations.paramId }),

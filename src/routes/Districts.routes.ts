@@ -6,31 +6,31 @@ import Authorization from '../middlewares/Authorization';
 import Authentication from '../middlewares/Authentication';
 
 export class DistrictsRoutes {
-  constructor(private routes: Router) {}
+  constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsDistrict) {
-    this.routes.get('/districts', DistrictController.index);
+    this.routes.get('/mcdonuts/districts', DistrictController.index);
     this.routes.get(
-      '/districts/:name',
+      '/mcdonuts/districts/:name',
       celebrate({ params: validations.paramName }),
       DistrictController.show,
     );
     this.routes.post(
-      '/districts',
+      '/mcdonuts/districts',
       Authentication,
       Authorization,
       celebrate({ body: validations.district }),
       DistrictController.store,
     );
     this.routes.put(
-      '/districts/:id',
+      '/mcdonuts/districts/:id',
       Authentication,
       Authorization,
       celebrate({ body: validations.district, params: validations.paramId }),
       DistrictController.update,
     );
     this.routes.delete(
-      '/districts/:id',
+      '/mcdonuts/districts/:id',
       Authentication,
       Authorization,
       celebrate({ params: validations.paramId }),

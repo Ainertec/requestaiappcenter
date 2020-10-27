@@ -4,33 +4,33 @@ import DeliverymanController from '../app/controllers/DeliverymanController';
 import { IValidationsDeliveryman } from './routesDTO';
 
 export class DeliverymansRoutes {
-  constructor(private routes: Router) {}
+  constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsDeliveryman) {
-    this.routes.get('/deliverymans', DeliverymanController.index);
+    this.routes.get('/mcdonuts/deliverymans', DeliverymanController.index);
     this.routes.get(
-      '/deliverymans/hasDelivery',
+      '/mcdonuts/deliverymans/hasDelivery',
       DeliverymanController.showByDelivery,
     );
-    this.routes.get('/deliverymans/availables', DeliverymanController.show);
+    this.routes.get('/mcdonuts/deliverymans/availables', DeliverymanController.show);
     this.routes.get(
-      '/deliverymans/working_days',
+      '/mcdonuts/deliverymans/working_days',
       DeliverymanController.showByWorking,
     );
-    this.routes.get('/deliverymans/:name', DeliverymanController.showByName);
+    this.routes.get('/mcdonuts/deliverymans/:name', DeliverymanController.showByName);
     this.routes.post(
-      '/deliverymans',
+      '/mcdonuts/deliverymans',
       celebrate({ body: validations.deliveryman }),
       DeliverymanController.store,
     );
     this.routes.put(
-      '/deliverymans/:id',
+      '/mcdonuts/deliverymans/:id',
       celebrate({ body: validations.deliveryman, params: validations.paramId }),
       DeliverymanController.update,
     );
-    this.routes.put('/deliverymans', DeliverymanController.reset);
+    this.routes.put('/mcdonuts/deliverymans', DeliverymanController.reset);
     this.routes.delete(
-      '/deliverymans/:id',
+      '/mcdonuts/deliverymans/:id',
       celebrate({ params: validations.paramId }),
       DeliverymanController.delete,
     );

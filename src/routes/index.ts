@@ -86,7 +86,7 @@ printersRoutes.getRoutes({ printer });
 // serial
 
 routes.get(
-  '/serial_false',
+  '/mcdonuts/serial_false',
   celebrate({ query: serial }),
   SerialController.exit,
 );

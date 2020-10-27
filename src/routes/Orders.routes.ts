@@ -5,36 +5,36 @@ import { IValidationsOrder } from './routesDTO';
 import Authorization from '../middlewares/Authorization';
 
 export class OrdersRoutes {
-  constructor(private routes: Router) {}
+  constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsOrder) {
-    this.routes.get('/orders', Authorization, OrderController.index);
-    this.routes.get('/orders/user', OrderController.showByUser);
+    this.routes.get('/mcdonuts/orders', Authorization, OrderController.index);
+    this.routes.get('/mcdonuts/orders/user', OrderController.showByUser);
     this.routes.get(
-      '/orders/deliveryman/:deliveryman',
+      '/mcdonuts/orders/deliveryman/:deliveryman',
       Authorization,
       celebrate({ params: validations.paramDeliveryman }),
       OrderController.showByDeliveryman,
     );
     this.routes.get(
-      '/orders/:identification',
+      '/mcdonuts/orders/:identification',
       Authorization,
       celebrate({ params: validations.paramIdentification }),
       OrderController.show,
     );
     this.routes.post(
-      '/orders',
+      '/mcdonuts/orders',
       celebrate({ body: validations.order }),
       OrderController.store,
     );
     this.routes.put(
-      '/orders/:id',
+      '/mcdonuts/orders/:id',
       Authorization,
       celebrate({ body: validations.orderUpdate }),
       OrderController.update,
     );
     this.routes.delete(
-      '/orders/:id',
+      '/mcdonuts/orders/:id',
       Authorization,
       celebrate({ params: validations.paramId }),
       OrderController.delete,
