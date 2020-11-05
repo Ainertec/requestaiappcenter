@@ -32,8 +32,8 @@ var Authorization_1 = __importDefault(require("../middlewares/Authorization"));
 var ShopController_1 = require("../app/controllers/ShopController");
 var routes = express_1.Router();
 var shopController = new ShopController_1.ShopController();
-routes.post('/shop', Authentication_1.default, shopController.store);
-routes.get('/shop', shopController.index);
+routes.post('/mcdonuts/shop', Authentication_1.default, shopController.store);
+routes.get('/mcdonuts/shop', shopController.index);
 // session
 var sessionRoutes = new Session_routes_1.SessionRoutes(routes);
 sessionRoutes.getRoutes();

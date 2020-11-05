@@ -36,8 +36,8 @@ import { ShopController } from '../app/controllers/ShopController';
 const routes = Router();
 
 const shopController = new ShopController();
-routes.post('/shop', Authentication, shopController.store);
-routes.get('/shop', shopController.index);
+routes.post('/mcdonuts/shop', Authentication, shopController.store);
+routes.get('/mcdonuts/shop', shopController.index);
 
 
 // session
