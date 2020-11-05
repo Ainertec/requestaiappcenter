@@ -10,7 +10,7 @@ interface IDeliveryman {
 }
 
 export class DeliverymanPaymentUseCase {
-  constructor(private OrderModel: Model<OrderInterface>) {}
+  constructor(private OrderModel: Model<OrderInterface>) { }
 
   public async execute(deliveryman_id: string) {
     const initial = startOfDay(new Date());

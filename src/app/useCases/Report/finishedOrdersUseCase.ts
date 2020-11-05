@@ -4,7 +4,7 @@ import { startOfDay, endOfDay } from 'date-fns';
 import { OrderInterface } from '../../../interfaces/base';
 
 export class FinishedOrdersUseCase {
-  constructor(private OrderModel: Model<OrderInterface>) {}
+  constructor(private OrderModel: Model<OrderInterface>) { }
 
   public async execute(deliveryman_id: string) {
     const initial = startOfDay(new Date());

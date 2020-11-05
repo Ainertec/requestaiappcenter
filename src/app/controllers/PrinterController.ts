@@ -141,14 +141,14 @@ class PrinterController {
     const vbs =
       process.env.NODE_ENV === 'test'
         ? path.resolve(
-            __dirname,
-            '..',
-            '..',
-            '..',
-            '__tests__',
-            'recipes',
-            'impressao.vbs',
-          )
+          __dirname,
+          '..',
+          '..',
+          '..',
+          '__tests__',
+          'recipes',
+          'impressao.vbs',
+        )
         : process.env.DIR_INITIALIZE_PRINT;
 
     if (vbs) {

@@ -8,7 +8,7 @@ interface InterfaceDispenseAndGain {
 }
 
 export class ProductDispenseAndGainUseCase {
-  constructor(private OrderModel: Model<OrderInterface>) {}
+  constructor(private OrderModel: Model<OrderInterface>) { }
 
   public async execute() {
     const orders = await this.OrderModel.aggregate<InterfaceDispenseAndGain>()

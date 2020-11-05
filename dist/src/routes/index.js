@@ -29,13 +29,17 @@ var Session_routes_1 = require("./Session.routes");
 var ForgotPassword_routes_1 = require("./ForgotPassword.routes");
 var Authentication_1 = __importDefault(require("../middlewares/Authentication"));
 var Authorization_1 = __importDefault(require("../middlewares/Authorization"));
+var ShopController_1 = require("../app/controllers/ShopController");
 var routes = express_1.Router();
+var shopController = new ShopController_1.ShopController();
+routes.post('/shop', Authentication_1.default, shopController.store);
+routes.get('/shop', shopController.index);
 // session
 var sessionRoutes = new Session_routes_1.SessionRoutes(routes);
 sessionRoutes.getRoutes();
 // forgot
-var forgotPassworndRoutes = new ForgotPassword_routes_1.ForgotPasswordRoutes(routes);
-forgotPassworndRoutes.getRoutes();
+var forgotPasswordRoutes = new ForgotPassword_routes_1.ForgotPasswordRoutes(routes);
+forgotPasswordRoutes.getRoutes();
 // users
 var userRoutes = new Users_routes_1.UserRoutes(routes);
 userRoutes.getRoutes({ paramName: commonSchema_1.paramName, paramId: commonSchema_1.paramId, client: clientSchema_1.client, clientUpdate: clientSchema_1.clientUpdate });

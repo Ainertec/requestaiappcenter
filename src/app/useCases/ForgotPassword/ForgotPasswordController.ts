@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { ForgotPasswordUseCase } from './ForgotPasswordUseCase';
 
 export class ForgotPasswordController {
-  constructor(private forgotPasswordUseCase: ForgotPasswordUseCase) {}
+  constructor(private forgotPasswordUseCase: ForgotPasswordUseCase) { }
 
   async show(request: Request, response: Response) {
     const { username } = request.params;

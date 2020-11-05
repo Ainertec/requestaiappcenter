@@ -8,7 +8,7 @@ export class SoldReportUseCase {
   constructor(
     private OrderModel: Model<OrderInterface>,
     private productsAmount: ProductAmountUseCase,
-  ) {}
+  ) { }
 
   async execute() {
     const initial = startOfDay(new Date());

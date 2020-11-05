@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { SessionUseCase } from './SessionUseCase';
 
 export class SessionController {
-  constructor(private sessionUseCase: SessionUseCase) {}
+  constructor(private sessionUseCase: SessionUseCase) { }
 
   async store(request: Request, response: Response) {
     const { username, password } = request.body;

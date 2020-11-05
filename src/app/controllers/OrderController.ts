@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { Request, Response } from 'express';
+import { request, Request, Response } from 'express';
 import { Types } from 'mongoose';
 import crypto from 'crypto';
 import Order, { Source } from '../models/Order';
@@ -148,7 +148,7 @@ class OrderController {
     const identification =
       user.phone && user.phone?.length > 0
         ? crypto.randomBytes(4).toString('hex') +
-          user.phone[0].slice(user.phone[0].length - 2)
+        user.phone[0].slice(user.phone[0].length - 2)
         : crypto.randomBytes(4).toString('hex');
 
     try {
@@ -194,6 +194,8 @@ class OrderController {
         .populate('deliveryman')
         .populate('items.product')
         .execPopulate();
+
+      request.io.emit('newOrder', order);
       return response.json(order);
     } catch (error) {
       return response.status(400).json(error.message);
