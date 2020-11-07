@@ -58,6 +58,7 @@
     "jsonwebtoken": "^8.5.1",
     "jsrtf": "^0.0.3",
     "mongoose": "^5.9.22",
+    "node-localstorage": "^2.1.6",
     "shelljs": "^0.8.4",
     "socket.io": "^2.3.0"
   }
