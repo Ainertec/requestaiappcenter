@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ItemRoutes = void 0;
+var celebrate_1 = require("celebrate");
+var ItemController_1 = __importDefault(require("../app/controllers/ItemController"));
+var ItemRoutes = /** @class */ (function () {
+    function ItemRoutes(routes) {
+        this.routes = routes;
+    }
+    ItemRoutes.prototype.getRoutes = function (validations) {
+        this.routes.post('/nutricionistajaquelinethedim/items', celebrate_1.celebrate({ body: validations.item }), ItemController_1.default.store);
+        this.routes.put('/nutricionistajaquelinethedim/items/:id', celebrate_1.celebrate({ body: validations.item, params: validations.paramId }), ItemController_1.default.update);
+        this.routes.delete('/nutricionistajaquelinethedim/items/:id', celebrate_1.celebrate({ params: validations.paramId }), ItemController_1.default.delete);
+    };
+    return ItemRoutes;
+}());
+exports.ItemRoutes = ItemRoutes;

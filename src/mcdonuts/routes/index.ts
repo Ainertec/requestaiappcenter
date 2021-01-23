@@ -33,36 +33,36 @@ import Authentication from '../middlewares/Authentication';
 import Authorization from '../middlewares/Authorization';
 import { ShopController } from '../app/controllers/ShopController';
 
-const routes = Router();
+const routesMcDonuts = Router();
 
 const shopController = new ShopController();
-routes.post('/mcdonuts/shop', Authentication, shopController.store);
-routes.get('/mcdonuts/shop', shopController.index);
+routesMcDonuts.post('/mcdonuts/shop', Authentication, shopController.store);
+routesMcDonuts.get('/mcdonuts/shop', shopController.index);
 
 
 // session
-const sessionRoutes = new SessionRoutes(routes);
+const sessionRoutes = new SessionRoutes(routesMcDonuts);
 sessionRoutes.getRoutes();
 // forgot
-const forgotPasswordRoutes = new ForgotPasswordRoutes(routes);
+const forgotPasswordRoutes = new ForgotPasswordRoutes(routesMcDonuts);
 forgotPasswordRoutes.getRoutes();
 
 // users
-const userRoutes = new UserRoutes(routes);
+const userRoutes = new UserRoutes(routesMcDonuts);
 userRoutes.getRoutes({ paramName, paramId, client, clientUpdate });
 
 // products
-const productRouters = new ProductRoutes(routes);
+const productRouters = new ProductRoutes(routesMcDonuts);
 productRouters.getRoutes({ product, paramName, paramId });
 
 // districtsRoutes
-const districtRoutes = new DistrictsRoutes(routes);
+const districtRoutes = new DistrictsRoutes(routesMcDonuts);
 districtRoutes.getRoutes({ paramName, paramId, district });
 
-routes.use(Authentication);
+routesMcDonuts.use(Authentication);
 
 // orders
-const orderRoutes = new OrdersRoutes(routes);
+const orderRoutes = new OrdersRoutes(routesMcDonuts);
 orderRoutes.getRoutes({
   order,
   orderUpdate,
@@ -71,31 +71,31 @@ orderRoutes.getRoutes({
   paramId,
 });
 
-routes.use(Authorization);
+routesMcDonuts.use(Authorization);
 
 // deliverymans
-const deliverymanRoutes = new DeliverymansRoutes(routes);
+const deliverymanRoutes = new DeliverymansRoutes(routesMcDonuts);
 deliverymanRoutes.getRoutes({ paramName, paramId, deliveryman });
 
 // ingredients
-const ingredientRoutes = new IngredientsRoutes(routes);
+const ingredientRoutes = new IngredientsRoutes(routesMcDonuts);
 ingredientRoutes.getRoutes({ paramName, paramId, ingredient });
 
 // reports
-const reportRoutes = new ReportsRoutes(routes);
+const reportRoutes = new ReportsRoutes(routesMcDonuts);
 reportRoutes.getRoutes(report);
 
 // printers
-const printersRoutes = new PrintersRoutes(routes);
+const printersRoutes = new PrintersRoutes(routesMcDonuts);
 printersRoutes.getRoutes({ printer });
 
 // serial
 
-routes.get(
+routesMcDonuts.get(
   '/mcdonuts/serial_false',
   celebrate({ query: serial }),
   SerialController.exit,
 );
 
 
-export default routes;
+export default routesMcDonuts;

@@ -10,7 +10,8 @@ var socket_io_1 = __importDefault(require("socket.io"));
 var http_1 = __importDefault(require("http"));
 var celebrate_1 = require("celebrate");
 var mongoose_1 = __importDefault(require("mongoose"));
-var routes_1 = __importDefault(require("./mcdonuts/routes"));
+var routes_1 = __importDefault(require("./nutrijacque/routes"));
+var routes_2 = __importDefault(require("./mcdonuts/routes"));
 var app = express_1.default();
 var server = new http_1.default.Server(app);
 var io = socket_io_1.default(server);
@@ -34,5 +35,6 @@ app.use(function (req, res, next) {
 });
 //importação de rotas de todos os sites
 app.use(routes_1.default);
+app.use(routes_2.default);
 app.use(celebrate_1.errors());
 exports.default = server;
