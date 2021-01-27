@@ -45,12 +45,13 @@ var ItemController = /** @class */ (function () {
     }
     ItemController.prototype.store = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, photo, linkpagament, description, price, linkvideo, comments, item;
+            var _a, name, photo, linkpagament, description, price, linkvideo, comments, item;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, photo = _a.photo, linkpagament = _a.linkpagament, description = _a.description, price = _a.price, linkvideo = _a.linkvideo, comments = _a.comments;
+                        _a = request.body, name = _a.name, photo = _a.photo, linkpagament = _a.linkpagament, description = _a.description, price = _a.price, linkvideo = _a.linkvideo, comments = _a.comments;
                         return [4 /*yield*/, Item_1.default.create({
+                                name: name,
                                 photo: photo,
                                 linkpagament: linkpagament,
                                 description: description,
@@ -67,13 +68,14 @@ var ItemController = /** @class */ (function () {
     };
     ItemController.prototype.update = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, photo, linkpagament, description, price, linkvideo, comments, id, item;
+            var _a, name, photo, linkpagament, description, price, linkvideo, comments, id, item;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, photo = _a.photo, linkpagament = _a.linkpagament, description = _a.description, price = _a.price, linkvideo = _a.linkvideo, comments = _a.comments;
+                        _a = request.body, name = _a.name, photo = _a.photo, linkpagament = _a.linkpagament, description = _a.description, price = _a.price, linkvideo = _a.linkvideo, comments = _a.comments;
                         id = request.params.id;
                         return [4 /*yield*/, Item_1.default.findOneAndUpdate({ _id: id }, {
+                                name: name,
                                 photo: photo,
                                 linkpagament: linkpagament,
                                 description: description,

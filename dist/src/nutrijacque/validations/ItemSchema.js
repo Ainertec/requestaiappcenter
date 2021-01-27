@@ -6,6 +6,7 @@ var comment = {
     mensage: celebrate_1.Joi.string().required(),
 };
 var Item = celebrate_1.Joi.object().keys({
+    name: celebrate_1.Joi.string().required(),
     photo: celebrate_1.Joi.string().required(),
     linkpagament: celebrate_1.Joi.string().required(),
     description: celebrate_1.Joi.string().required(),

@@ -11,11 +11,11 @@ var CategoryRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     CategoryRoutes.prototype.getRoutes = function (validations) {
-        this.routes.get('/nutricionistajaquelinethedim/categorys', CategoryController_1.default.index);
+        this.routes.get('/nutricionistajacquelinethedim/categorys', CategoryController_1.default.index);
         this.routes.get('/nutricionistajaquelinethedim/categorys/:name', celebrate_1.celebrate({ params: validations.paramName }), CategoryController_1.default.show);
-        this.routes.post('/nutricionistajaquelinethedim/categorys', celebrate_1.celebrate({ body: validations.category }), CategoryController_1.default.store);
-        this.routes.put('/nutricionistajaquelinethedim/categorys/:id', celebrate_1.celebrate({ body: validations.category, params: validations.paramId }), CategoryController_1.default.update);
-        this.routes.delete('/nutricionistajaquelinethedim/categorys/:id', celebrate_1.celebrate({ params: validations.paramId }), CategoryController_1.default.delete);
+        this.routes.post('/nutricionistajacquelinethedim/categorys', celebrate_1.celebrate({ body: validations.category }), CategoryController_1.default.store);
+        this.routes.put('/nutricionistajacquelinethedim/categorys/:id', celebrate_1.celebrate({ body: validations.category, params: validations.paramId }), CategoryController_1.default.update);
+        this.routes.delete('/nutricionistajacquelinethedim/categorys/:id', celebrate_1.celebrate({ params: validations.paramId }), CategoryController_1.default.delete);
     };
     return CategoryRoutes;
 }());

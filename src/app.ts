@@ -20,7 +20,7 @@ const io = socketio(server);
 app.use(cors());
 app.use(express.json());
 if (!(process.env.NODE_ENV === 'test'))
-  mongoose.connect(`${process.env.DB_URL}`, {
+  mongoose.connect(`${process.env.DB_URL_NUTRIJACQUE}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

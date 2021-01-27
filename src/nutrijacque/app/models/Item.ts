@@ -15,6 +15,10 @@ const CommentSchema = new Schema({
 
 const ItemSchema = new Schema<ItemInterface>(
   {
+    name:{
+      type: String,
+      required: true,
+    },
     photo: {
       type: String,
       required: true,

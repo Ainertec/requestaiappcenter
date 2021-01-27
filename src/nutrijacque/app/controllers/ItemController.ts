@@ -5,9 +5,10 @@ import Item from '../models/Item';
 class ItemController {
 
   async store(request: Request, response: Response) {
-    const { photo, linkpagament, description, price, linkvideo, comments } = request.body;
+    const { name, photo, linkpagament, description, price, linkvideo, comments } = request.body;
 
     const item = await Item.create({
+      name,
       photo,
       linkpagament,
       description,
@@ -20,12 +21,13 @@ class ItemController {
   }
 
   async update(request: Request, response: Response) {
-    const { photo, linkpagament, description, price, linkvideo, comments } = request.body;
+    const { name, photo, linkpagament, description, price, linkvideo, comments } = request.body;
     const { id } = request.params;
 
     const item = await Item.findOneAndUpdate(
       { _id: id },
       {
+        name,
         photo,
         linkpagament,
         description,

@@ -11,9 +11,9 @@ var ItemRoutes = /** @class */ (function () {
         this.routes = routes;
     }
     ItemRoutes.prototype.getRoutes = function (validations) {
-        this.routes.post('/nutricionistajaquelinethedim/items', celebrate_1.celebrate({ body: validations.item }), ItemController_1.default.store);
-        this.routes.put('/nutricionistajaquelinethedim/items/:id', celebrate_1.celebrate({ body: validations.item, params: validations.paramId }), ItemController_1.default.update);
-        this.routes.delete('/nutricionistajaquelinethedim/items/:id', celebrate_1.celebrate({ params: validations.paramId }), ItemController_1.default.delete);
+        this.routes.post('/nutricionistajacquelinethedim/items', celebrate_1.celebrate({ body: validations.item }), ItemController_1.default.store);
+        this.routes.put('/nutricionistajacquelinethedim/items/:id', celebrate_1.celebrate({ body: validations.item, params: validations.paramId }), ItemController_1.default.update);
+        this.routes.delete('/nutricionistajacquelinethedim/items/:id', celebrate_1.celebrate({ params: validations.paramId }), ItemController_1.default.delete);
     };
     return ItemRoutes;
 }());

@@ -6,6 +6,7 @@ const comment = {
 };
 
 const Item = Joi.object().keys({
+  name:Joi.string().required(),
   photo: Joi.string().required(),
   linkpagament: Joi.string().required(),
   description: Joi.string().required(),

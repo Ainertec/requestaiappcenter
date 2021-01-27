@@ -8,17 +8,17 @@ export class ItemRoutes {
 
   getRoutes(validations: IValidationsItem) {
     this.routes.post(
-      '/nutricionistajaquelinethedim/items',
+      '/nutricionistajacquelinethedim/items',
       celebrate({ body: validations.item }),
       ItemController.store,
     );
     this.routes.put(
-      '/nutricionistajaquelinethedim/items/:id',
+      '/nutricionistajacquelinethedim/items/:id',
       celebrate({ body: validations.item, params: validations.paramId }),
       ItemController.update,
     );
     this.routes.delete(
-      '/nutricionistajaquelinethedim/items/:id',
+      '/nutricionistajacquelinethedim/items/:id',
       celebrate({ params: validations.paramId }),
       ItemController.delete,
     );

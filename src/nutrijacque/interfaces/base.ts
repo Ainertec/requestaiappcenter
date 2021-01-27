@@ -13,6 +13,7 @@ export interface Item {
   reference: ItemInterface;
 }
 export interface ItemInterface extends Document {
+  name: String;
   photo: String;
   linkpagament: String;
   description: String;

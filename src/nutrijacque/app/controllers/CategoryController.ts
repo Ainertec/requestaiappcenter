@@ -10,7 +10,7 @@ class CategoryController {
   }
 
   async index(request: Request, response: Response) {
-    const categorys = await Category.find({}).populate('Items');
+    const categorys = await Category.find({}).populate('items');
     return response.json(categorys);
   }
 
@@ -19,7 +19,7 @@ class CategoryController {
 
     const categorys = await Category.find({
       name: { $regex: new RegExp(name), $options: 'i' },
-    }).populate('Items')
+    }).populate('items')
 
     return response.json(categorys);
   }
@@ -30,7 +30,7 @@ class CategoryController {
       name,
       items,
     });
-    await category.populate('Items').execPopulate();
+    await category.populate('items').execPopulate();
     return response.json(category);
   }
 

@@ -50,7 +50,7 @@ var CategoryController = /** @class */ (function () {
             var categorys;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, Category_1.default.find({}).populate('Items')];
+                    case 0: return [4 /*yield*/, Category_1.default.find({}).populate('items')];
                     case 1:
                         categorys = _a.sent();
                         return [2 /*return*/, response.json(categorys)];
@@ -67,7 +67,7 @@ var CategoryController = /** @class */ (function () {
                         name = request.params.name;
                         return [4 /*yield*/, Category_1.default.find({
                                 name: { $regex: new RegExp(name), $options: 'i' },
-                            }).populate('Items')];
+                            }).populate('items')];
                     case 1:
                         categorys = _a.sent();
                         return [2 /*return*/, response.json(categorys)];
@@ -88,7 +88,7 @@ var CategoryController = /** @class */ (function () {
                             })];
                     case 1:
                         category = _b.sent();
-                        return [4 /*yield*/, category.populate('Items').execPopulate()];
+                        return [4 /*yield*/, category.populate('items').execPopulate()];
                     case 2:
                         _b.sent();
                         return [2 /*return*/, response.json(category)];

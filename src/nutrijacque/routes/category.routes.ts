@@ -7,24 +7,24 @@ export class CategoryRoutes {
   constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsCategory) {
-    this.routes.get('/nutricionistajaquelinethedim/categorys', CategoryController.index);
+    this.routes.get('/nutricionistajacquelinethedim/categorys', CategoryController.index);
     this.routes.get(
       '/nutricionistajaquelinethedim/categorys/:name',
       celebrate({ params: validations.paramName }),
       CategoryController.show,
     );
     this.routes.post(
-      '/nutricionistajaquelinethedim/categorys',
+      '/nutricionistajacquelinethedim/categorys',
       celebrate({ body: validations.category }),
       CategoryController.store,
     );
     this.routes.put(
-      '/nutricionistajaquelinethedim/categorys/:id',
+      '/nutricionistajacquelinethedim/categorys/:id',
       celebrate({ body: validations.category, params: validations.paramId }),
       CategoryController.update,
     );
     this.routes.delete(
-      '/nutricionistajaquelinethedim/categorys/:id',
+      '/nutricionistajacquelinethedim/categorys/:id',
       celebrate({ params: validations.paramId }),
       CategoryController.delete,
     );

@@ -13,6 +13,10 @@ var CommentSchema = new mongoose_1.Schema({
     },
 });
 var ItemSchema = new mongoose_1.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
     photo: {
         type: String,
         required: true,
