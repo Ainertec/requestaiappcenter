@@ -42,7 +42,39 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Item_1 = __importDefault(require("../models/Item"));
 var ItemController = /** @class */ (function () {
     function ItemController() {
+        this.store = this.store.bind(this);
+        this.update = this.update.bind(this);
     }
+    ItemController.prototype.index = function (request, response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var items;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Item_1.default.find({})];
+                    case 1:
+                        items = _a.sent();
+                        return [2 /*return*/, response.json(items)];
+                }
+            });
+        });
+    };
+    ItemController.prototype.show = function (request, response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var name, items;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        name = request.params.name;
+                        return [4 /*yield*/, Item_1.default.find({
+                                name: { $regex: new RegExp(name), $options: 'i' }
+                            })];
+                    case 1:
+                        items = _a.sent();
+                        return [2 /*return*/, response.json(items)];
+                }
+            });
+        });
+    };
     ItemController.prototype.store = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, name, photo, linkpagament, description, price, linkvideo, comments, item;

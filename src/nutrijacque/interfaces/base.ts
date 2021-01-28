@@ -6,18 +6,18 @@ export interface CategoryInterface extends Document {
   items: Item[];
 }
 export interface Comment {
-  name: String;
-  mensage: String;
+  name: string;
+  mensage: string;
 }
 export interface Item {
   reference: ItemInterface;
 }
 export interface ItemInterface extends Document {
-  name: String;
-  photo: String;
-  linkpagament: String;
-  description: String;
-  price: Number;
-  linkvideo: String;
+  name: string;
+  photo: string;
+  linkpagament: string;
+  description: string;
+  price: number;
+  linkvideo: string;
   comments: Comment[];
 }

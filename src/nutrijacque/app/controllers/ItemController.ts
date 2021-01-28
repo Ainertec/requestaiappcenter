@@ -3,6 +3,25 @@ import { Request, Response } from 'express';
 import Item from '../models/Item';
 
 class ItemController {
+  public constructor() {
+    this.store = this.store.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  async index(request: Request, response: Response) {
+    const items = await Item.find({});
+    return response.json(items);
+  }
+
+  async show(request: Request, response: Response) {
+    const { name } = request.params;
+
+    const items = await Item.find({
+      name: { $regex: new RegExp(name), $options: 'i' }
+    })
+
+    return response.json(items);
+  }
 
   async store(request: Request, response: Response) {
     const { name, photo, linkpagament, description, price, linkvideo, comments } = request.body;

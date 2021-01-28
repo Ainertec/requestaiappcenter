@@ -7,6 +7,12 @@ export class ItemRoutes {
   constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsItem) {
+    this.routes.get('/nutricionistajacquelinethedim/items', ItemController.index);
+    this.routes.get(
+      '/nutricionistajacquelinethedim/items:name',
+      celebrate({ params: validations.paramName }),
+      ItemController.show,
+    );
     this.routes.post(
       '/nutricionistajacquelinethedim/items',
       celebrate({ body: validations.item }),
