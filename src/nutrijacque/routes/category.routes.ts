@@ -9,7 +9,7 @@ export class CategoryRoutes {
   getRoutes(validations: IValidationsCategory) {
     this.routes.get('/nutricionistajacquelinethedim/categorys', CategoryController.index);
     this.routes.get(
-      '/nutricionistajaquelinethedim/categorys/:name',
+      '/nutricionistajacquelinethedim/categorys/:name',
       celebrate({ params: validations.paramName }),
       CategoryController.show,
     );
