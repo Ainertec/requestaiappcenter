@@ -122,6 +122,24 @@ var ItemController = /** @class */ (function () {
             });
         });
     };
+    ItemController.prototype.updateComment = function (request, response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var comments, id, item;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        comments = request.body.comments;
+                        id = request.params.id;
+                        return [4 /*yield*/, Item_1.default.findOneAndUpdate({ _id: id }, {
+                                comments: comments
+                            }, { new: true })];
+                    case 1:
+                        item = _a.sent();
+                        return [2 /*return*/, response.json(item)];
+                }
+            });
+        });
+    };
     ItemController.prototype.delete = function (request, response) {
         return __awaiter(this, void 0, void 0, function () {
             var id;

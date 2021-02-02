@@ -60,6 +60,21 @@ class ItemController {
     return response.json(item);
   }
 
+  async updateComment(request: Request, response: Response) {
+    const { comments } = request.body;
+    const { id } = request.params;
+
+    const item = await Item.findOneAndUpdate(
+      { _id: id },
+      {
+        comments
+      },
+      { new: true },
+    );
+
+    return response.json(item);
+  }
+
   async delete(request: Request, response: Response) {
     const { id } = request.params;
 

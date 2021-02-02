@@ -15,13 +15,18 @@ export class ItemRoutes {
     );
     this.routes.post(
       '/nutricionistajacquelinethedim/items',
-      celebrate({ body: validations.item }),
+      celebrate({ body: validations.Item }),
       ItemController.store,
     );
     this.routes.put(
       '/nutricionistajacquelinethedim/items/:id',
-      celebrate({ body: validations.item, params: validations.paramId }),
+      celebrate({ body: validations.Item, params: validations.paramId }),
       ItemController.update,
+    );
+    this.routes.put(
+      '/nutricionistajacquelinethedim/itemscomments/:id',
+      celebrate({ body: validations.ItemComment, params: validations.paramId }),
+      ItemController.updateComment,
     );
     this.routes.delete(
       '/nutricionistajacquelinethedim/items/:id',

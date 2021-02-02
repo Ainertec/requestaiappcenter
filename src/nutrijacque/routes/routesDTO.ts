@@ -14,6 +14,7 @@ export interface IValidationsCategory {
 }
 export interface IValidationsItem {
   paramName: IParamName;
-  item: Joi.ObjectSchema;
+  Item: Joi.ObjectSchema;
   paramId: IParamId;
+  ItemComment: Joi.ObjectSchema;
 }

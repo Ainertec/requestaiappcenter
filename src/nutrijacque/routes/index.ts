@@ -6,7 +6,7 @@ import { ItemRoutes } from './item.routes';
 
 // validations
 import category from '../validations/CategorySchema';
-import item from '../validations/ItemSchema';;
+import { Item, ItemComment } from '../validations/ItemSchema';;
 import { paramName, paramId } from '../validations/commonSchema';
 
 const routesNutriJacque = Router();
@@ -18,6 +18,6 @@ categoryRouters.getRoutes({ category, paramName, paramId });
 
 // accommodations
 const itemRoutes = new ItemRoutes(routesNutriJacque);
-itemRoutes.getRoutes({ paramName, paramId, item });
+itemRoutes.getRoutes({ paramName, paramId, Item, ItemComment });
 
 export default routesNutriJacque;

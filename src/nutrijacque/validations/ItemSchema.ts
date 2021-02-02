@@ -5,7 +5,7 @@ const comment = {
   mensage: Joi.string().required(),
 };
 
-const Item = Joi.object().keys({
+export const Item = Joi.object().keys({
   name:Joi.string().required(),
   photo: Joi.string().required(),
   linkpagament: Joi.string().required(),
@@ -15,4 +15,6 @@ const Item = Joi.object().keys({
   comments: Joi.array().items(comment).required(),
 });
 
-export default Item;
+export const ItemComment = Joi.object().keys({
+  comments: Joi.array().items(comment).required(),
+});

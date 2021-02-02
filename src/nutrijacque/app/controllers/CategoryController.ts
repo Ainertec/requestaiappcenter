@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import { Request, Response } from 'express';
-import Item from '../../validations/ItemSchema';
+import { Item } from '../../validations/ItemSchema';
 import Category from '../models/Category';
 
 class CategoryController {
