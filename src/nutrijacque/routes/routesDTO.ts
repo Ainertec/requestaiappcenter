@@ -18,3 +18,9 @@ export interface IValidationsItem {
   paramId: IParamId;
   ItemComment: Joi.ObjectSchema;
 }
+export interface IValidationsUser {
+  user: Joi.ObjectSchema;
+  userUpdate: Joi.ObjectSchema;
+  paramName: IParamName;
+  paramId: IParamId;
+}

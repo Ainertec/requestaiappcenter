@@ -2,6 +2,8 @@ import { Router } from 'express';
 import { celebrate } from 'celebrate';
 import CategoryController from '../app/controllers/CategoryController';
 import { IValidationsCategory } from './routesDTO';
+import Authentication from '../middlewares/Authentication';
+import Authorization from '../middlewares/Authorization';
 
 export class CategoryRoutes {
   constructor(private routes: Router) { }
@@ -15,16 +17,22 @@ export class CategoryRoutes {
     );
     this.routes.post(
       '/nutricionistajacquelinethedim/categorys',
+      Authentication,
+      Authorization,
       celebrate({ body: validations.category }),
       CategoryController.store,
     );
     this.routes.put(
       '/nutricionistajacquelinethedim/categorys/:id',
+      Authentication,
+      Authorization,
       celebrate({ body: validations.category, params: validations.paramId }),
       CategoryController.update,
     );
     this.routes.delete(
       '/nutricionistajacquelinethedim/categorys/:id',
+      Authentication,
+      Authorization,
       celebrate({ params: validations.paramId }),
       CategoryController.delete,
     );

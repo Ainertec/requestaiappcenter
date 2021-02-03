@@ -8,7 +8,7 @@ import http from 'http';
 import { errors } from 'celebrate';
 import mongoose from 'mongoose';
 import routesNutriJacque from './nutrijacque/routes';
-import routesMcDonuts from './mcdonuts/routes';
+//import routesMcDonuts from './mcdonuts/routes';
 
 
 const app = express();
@@ -44,7 +44,7 @@ app.use((req: Request, res: Response, next) => {
 
 //importação de rotas de todos os sites
 app.use(routesNutriJacque);
-app.use(routesMcDonuts);
+//app.use(routesMcDonuts);
 
 
 app.use(errors());
