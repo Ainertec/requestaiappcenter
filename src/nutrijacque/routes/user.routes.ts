@@ -10,7 +10,7 @@ export class UserRoutes {
   constructor(private routes: Router) { }
 
   getRoutes(validations: IValidationsUser) {
-    this.routes.get(
+    /*this.routes.get(
       '/nutricionistajacquelinethedim/users',
       Authentication,
       Authorization,
@@ -28,22 +28,23 @@ export class UserRoutes {
       UserAuth,
       celebrate({ body: validations.user }),
       UserController.store,
-    );
+    );*/
     this.routes.put(
       '/nutricionistajacquelinethedim/users/:id',
       Authentication,
+      Authorization,
       celebrate({
         body: validations.userUpdate,
         params: validations.paramId,
       }),
       UserController.update,
     );
-    this.routes.delete(
+    /*this.routes.delete(
       '/nutricionistajacquelinethedim/users/:id',
       Authentication,
       Authorization,
       celebrate({ params: validations.paramId }),
       UserController.delete,
-    );
+    );*/
   }
 }
