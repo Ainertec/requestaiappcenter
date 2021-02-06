@@ -46,7 +46,7 @@ class UserController {
       admin: !userId || !userAdm.admin ? false : admin,
     });
 
-    await user.populate('address.district').execPopulate();
+    await user.execPopulate();
 
     return responseHttp.json(user);
   }
@@ -68,7 +68,7 @@ class UserController {
 
     const user = authUser.admin ? userToUpdate : authUser;
 
-    if (!user) return response.status(400).json('user does not exist');
+    if (!user) return responseHttp.status(400).json('user does not exist');
 
     if (password) {
       user.password = password;
@@ -81,13 +81,6 @@ class UserController {
     }
     if (admin && user.admin) {
       user.admin = admin;
-    }
-    if (username) {
-      const alreadyExists = await User.findOne({ username });
-      if (alreadyExists) {
-        return response.status(400).json('This username already exist');
-      }
-      user.username = username;
     }
 
     await user.save();

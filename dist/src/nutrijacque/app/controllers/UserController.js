@@ -99,7 +99,7 @@ var UserController = /** @class */ (function () {
                             })];
                     case 2:
                         user = _b.sent();
-                        return [4 /*yield*/, user.populate('address.district').execPopulate()];
+                        return [4 /*yield*/, user.execPopulate()];
                     case 3:
                         _b.sent();
                         return [2 /*return*/, responseHttp.json(user)];
@@ -109,7 +109,7 @@ var UserController = /** @class */ (function () {
     };
     UserController.prototype.update = function (request, responseHttp) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, password, username, admin, question, response, id, userId, authUser, userToUpdate, user, alreadyExists;
+            var _a, password, username, admin, question, response, id, userId, authUser, userToUpdate, user;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -124,7 +124,7 @@ var UserController = /** @class */ (function () {
                         userToUpdate = _b.sent();
                         user = authUser.admin ? userToUpdate : authUser;
                         if (!user)
-                            return [2 /*return*/, response.status(400).json('user does not exist')];
+                            return [2 /*return*/, responseHttp.status(400).json('user does not exist')];
                         if (password) {
                             user.password = password;
                         }
@@ -137,20 +137,11 @@ var UserController = /** @class */ (function () {
                         if (admin && user.admin) {
                             user.admin = admin;
                         }
-                        if (!username) return [3 /*break*/, 4];
-                        return [4 /*yield*/, User_1.default.findOne({ username: username })];
+                        return [4 /*yield*/, user.save()];
                     case 3:
-                        alreadyExists = _b.sent();
-                        if (alreadyExists) {
-                            return [2 /*return*/, response.status(400).json('This username already exist')];
-                        }
-                        user.username = username;
-                        _b.label = 4;
-                    case 4: return [4 /*yield*/, user.save()];
-                    case 5:
                         _b.sent();
                         return [4 /*yield*/, user.execPopulate()];
-                    case 6:
+                    case 4:
                         _b.sent();
                         return [2 /*return*/, responseHttp.json(user)];
                 }
