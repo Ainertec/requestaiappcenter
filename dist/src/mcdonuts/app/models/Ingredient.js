@@ -42,6 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Unit = void 0;
 /* eslint-disable no-param-reassign */
 var mongoose_1 = require("mongoose");
+var connection_1 = __importDefault(require("../db/connection"));
 var Product_1 = __importDefault(require("./Product"));
 var getProductCost_1 = __importDefault(require("../utils/getProductCost"));
 var Unit = Object.freeze({
@@ -153,4 +154,4 @@ IngredientSchema.post('findOneAndRemove', function (document) { return __awaiter
         }
     });
 }); });
-exports.default = mongoose_1.model('Ingredient', IngredientSchema);
+exports.default = connection_1.default.model('Ingredient', IngredientSchema);

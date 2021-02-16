@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { DeliverymanInterface } from '../../interfaces/base';
 
 const DeliverymanSchema = new Schema(
@@ -32,4 +33,4 @@ const DeliverymanSchema = new Schema(
   },
 );
 
-export default model<DeliverymanInterface>('Deliveryman', DeliverymanSchema);
+export default Connection.model<DeliverymanInterface>('Deliveryman', DeliverymanSchema);

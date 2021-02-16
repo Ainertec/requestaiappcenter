@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { CategoryInterface } from '../../interfaces/base';
 import Item from './Item';
 
@@ -34,4 +35,4 @@ CategorySchema.post<CategoryInterface>(
     }
   })
 
-export default model<CategoryInterface>('Category', CategorySchema);
+export default Connection.model<CategoryInterface>('Category', CategorySchema);

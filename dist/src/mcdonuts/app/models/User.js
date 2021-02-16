@@ -43,6 +43,7 @@ exports.Questions = void 0;
 /* eslint-disable camelcase */
 /* eslint-disable func-names */
 var mongoose_1 = require("mongoose");
+var connection_1 = __importDefault(require("../db/connection"));
 var bcrypt_1 = __importDefault(require("bcrypt"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 exports.Questions = Object.freeze({
@@ -139,4 +140,4 @@ UserSchema.methods.checkPassword = function (password) {
 UserSchema.methods.generateToken = function () {
     return jsonwebtoken_1.default.sign({ id: this._id }, String(process.env.APP_SECRET));
 };
-exports.default = mongoose_1.model('User', UserSchema);
+exports.default = connection_1.default.model('User', UserSchema);

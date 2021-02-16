@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { ItemInterface } from '../../interfaces/base';
 
 const CommentSchema = new Schema({
@@ -46,4 +47,4 @@ const ItemSchema = new Schema<ItemInterface>(
   },
 );
 
-export default model<ItemInterface>('Item', ItemSchema);
+export default Connection.model<ItemInterface>('Item', ItemSchema);

@@ -40,6 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
+var connection_1 = __importDefault(require("../db/connection"));
 var Item_1 = __importDefault(require("./Item"));
 var CategorySchema = new mongoose_1.Schema({
     name: {
@@ -79,4 +80,4 @@ CategorySchema.post('findOneAndDelete', function (document) { return __awaiter(v
         }
     });
 }); });
-exports.default = mongoose_1.model('Category', CategorySchema);
+exports.default = connection_1.default.model('Category', CategorySchema);

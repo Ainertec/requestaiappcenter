@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { IngredientInterface, ProductInterface } from '../../interfaces/base';
 import Product from './Product';
 import getCost from '../utils/getProductCost';
@@ -95,4 +96,4 @@ IngredientSchema.post<IngredientInterface>(
   },
 );
 
-export default model<IngredientInterface>('Ingredient', IngredientSchema);
+export default Connection.model<IngredientInterface>('Ingredient', IngredientSchema);

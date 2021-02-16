@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { DistrictInterface } from '../../interfaces/base';
 
 const DistrictSchema = new Schema(
@@ -21,4 +22,4 @@ const DistrictSchema = new Schema(
   },
 );
 
-export default model<DistrictInterface>('District', DistrictSchema);
+export default Connection.model<DistrictInterface>('District', DistrictSchema);

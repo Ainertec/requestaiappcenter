@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable func-names */
-import { Schema, model, Document } from 'mongoose';
+import { Document, Schema } from 'mongoose';
+import Connection from '../db/connection';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -135,4 +136,4 @@ UserSchema.methods.generateToken = function () {
   return jwt.sign({ id: this._id }, String(process.env.APP_SECRET));
 };
 
-export default model<IUserDocument>('User', UserSchema);
+export default Connection.model<IUserDocument>('User', UserSchema);

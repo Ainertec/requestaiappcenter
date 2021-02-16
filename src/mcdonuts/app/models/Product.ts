@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { ProductInterface } from '../../interfaces/base';
 
 const IngredientSchema = new Schema({
@@ -47,4 +48,4 @@ const ProductSchema = new Schema(
   },
 );
 
-export default model<ProductInterface>('Product', ProductSchema);
+export default Connection.model<ProductInterface>('Product', ProductSchema);

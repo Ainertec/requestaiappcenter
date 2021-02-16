@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import { Schema, model } from 'mongoose';
+import { Schema } from 'mongoose';
+import Connection from '../db/connection';
 import { OrderInterface } from '../../interfaces/base';
 import Product from './Product';
 import { subIngredientStock } from '../utils/subIngredientStock';
@@ -152,4 +153,4 @@ OrderSchema.post<OrderInterface>('save', async document => {
   }
 });
 export { Source };
-export default model<OrderInterface>('Order', OrderSchema);
+export default Connection.model<OrderInterface>('Order', OrderSchema);

@@ -43,6 +43,7 @@ exports.Source = void 0;
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 var mongoose_1 = require("mongoose");
+var connection_1 = __importDefault(require("../db/connection"));
 var Product_1 = __importDefault(require("./Product"));
 var subIngredientStock_1 = require("../utils/subIngredientStock");
 var ItemsSchema = new mongoose_1.Schema({
@@ -193,4 +194,4 @@ OrderSchema.post('save', function (document) { return __awaiter(void 0, void 0, 
         }
     });
 }); });
-exports.default = mongoose_1.model('Order', OrderSchema);
+exports.default = connection_1.default.model('Order', OrderSchema);
